@@ -13,6 +13,6 @@
     height: 50px;
     width: 50px;
     background-color: black;
-    opacity: 0;
+    opacity: .10;
     display: inline-block;
 }
