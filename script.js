@@ -17,7 +17,7 @@ button.addEventListener("click", function() {
 
 function createGrid(squaresPerSide) {
     const container = document.getElementById("container");
-    const squareSize = 800 / squaresPerSide;
+    const squareSize = +container.style.width / squaresPerSide;
     const numberOfSquares = squaresPerSide * squaresPerSide;
 
     while (container.firstChild) {
