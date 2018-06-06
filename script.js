@@ -1,6 +1,12 @@
 const backing = document.getElementById("backing");
-backing.style.width = "700px";
+
+createField(backing);
 createGrid(16, backing);
+
+window.addEventListener("resize", function() {
+  createField(backing);
+  createGrid(16, backing);
+});
 
 const button = document.getElementById("new-grid");
 
@@ -15,6 +21,15 @@ button.addEventListener("click", function() {
     }
   }
 });
+
+function createField(box) {
+  const width =
+    window.innerWidth < window.innerHeight - 95
+      ? window.innerWidth - 20
+      : window.innerHeight - 95;
+  box.style.width = `${width}px`;
+  box.style.height = `${width}px`;
+}
 
 function createGrid(squaresPerSide, container) {
   const squareSize = +container.style.width.slice(0, -2) / squaresPerSide;
