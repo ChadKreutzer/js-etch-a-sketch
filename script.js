@@ -1,12 +1,10 @@
 const backing = document.getElementById("backing");
-
-createField(backing);
-createGrid(16, backing);
-
 window.addEventListener("resize", function() {
   createField(backing);
   createGrid(16, backing);
 });
+createField(backing);
+createGrid(16, backing);
 
 const button = document.getElementById("new-grid");
 
