@@ -1,32 +1,38 @@
+// Globals
 const backing = document.getElementById("backing");
-window.addEventListener("resize", function() {
-  createField(backing);
-  createGrid(16, backing);
-});
-createField(backing);
-createGrid(16, backing);
-
 const button = document.getElementById("new-grid");
 
-button.addEventListener("click", function() {
-  const squaresPerSide = prompt("How many squares per side?", 16);
+initializeDrawArea(16, backing);
 
-  if (squaresPerSide != null) {
-    if (squaresPerSide < 1 || squaresPerSide > 100) {
-      alert("Number out of range. Try again.");
-    } else {
-      createGrid(squaresPerSide, backing);
-    }
-  }
-});
+// Event Listeners
+window.addEventListener("resize", () => initializeDrawArea(16, backing));
+button.addEventListener("click", () => sizeGridSquares(backing));
 
-function createField(box) {
+// Functions
+function initializeDrawArea(squareSize, container) {
+  sizeField(container);
+  createGrid(squareSize, container);
+}
+
+function sizeField(box) {
   const width =
     window.innerWidth < window.innerHeight - 95
       ? window.innerWidth - 20
       : window.innerHeight - 95;
   box.style.width = `${width}px`;
   box.style.height = `${width}px`;
+}
+
+function sizeGridSquares(container) {
+  const squaresPerSide = prompt("How many squares per side? (1-100)", 16);
+  
+  if (!squaresPerSide || !Number.isInteger(+squaresPerSide)) {
+    alert("Input must be an integer between 1 and 100");
+    return;
+  }
+  squaresPerSide < 1 || squaresPerSide > 100
+    ? alert("Number out of range. Try again.")
+    : createGrid(squaresPerSide, container);
 }
 
 function createGrid(squaresPerSide, container) {
