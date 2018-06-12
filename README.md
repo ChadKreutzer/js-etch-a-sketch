@@ -1,6 +1,6 @@
 # JS-Etch-a-Sketch
 
-This is the Javascript and jQuery project from The Odin Project. The instructions are:
+This is a Javascript project from The Odin Project. The instructions are:
 
 1. Create a web page with a 16x16 grid of square divs.
 2. Set up a hover effect so it changes the color of the square when your mouse passes over it, leaving a (pixelated) trail through your grid like a pen would.
